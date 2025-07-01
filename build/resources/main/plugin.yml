@@ -1,0 +1,11 @@
+name: locator-preferences
+main: com.haage.locatorpreferences.LocatorPreferences
+version: "1.0-SNAPSHOT"
+api-version: "1.21"
+
+commands:
+  locatorpreference:
+    description: Manage your locator-bar preferences
+    usage: /locatorpreference range <value>
+    aliases: []                # explicitly no aliases
+    fallback-prefix: false     # disable plugin namespace fallback

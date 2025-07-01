@@ -1,0 +1,41 @@
+// build.gradle
+
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.gradle.jvm.toolchain.JavaLanguageVersion
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.haage.locatorpreferences'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        // Use JDK 21 so Gradle pulls in Paper 1.21.6 (Java 21 variant)
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    // Provided by the server at runtime
+    compileOnly 'io.papermc.paper:paper-api:1.21.6-R0.1-SNAPSHOT'
+}
+
+tasks.named('shadowJar', ShadowJar) {
+    archiveBaseName.set('locator-preferences')
+    archiveClassifier.set('all')
+    archiveVersion.set(version)
+}
+
+tasks.build {
+    dependsOn tasks.shadowJar
+}
