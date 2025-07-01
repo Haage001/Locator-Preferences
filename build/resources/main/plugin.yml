@@ -1,11 +1,15 @@
 name: locator-preferences
 main: com.haage.locatorpreferences.LocatorPreferences
-version: "1.0-SNAPSHOT"
-api-version: "1.21"
-
+version: '1.0.0'
+api-version: '1.21'
+author: Haage
+website: https://modrinth.com/project/rFR8IxHR
+description: >
+  Allows players to control their personal locator-bar (waypoint) range
+  with /locatorpreference [range <num>|disable|reset|infinite].
 commands:
   locatorpreference:
-    description: Manage your locator-bar preferences
-    usage: /locatorpreference range <value>
-    aliases: []                # explicitly no aliases
-    fallback-prefix: false     # disable plugin namespace fallback
+    description: Manage your locator-bar transmit range
+    usage: /locatorpreference <range <value|infinite>|disable|reset>
+    aliases: []
+    fallback-prefix: false
